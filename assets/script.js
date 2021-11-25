@@ -1,39 +1,87 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-
-// First, tell us your name
-let yourName = "Mae Pena" // HINT: Replace this with your own name!
-
-// We'll use these variables to track the counts of each cookie type
-let gb = 0;      // Gingerbread
-let cc = 0;      // Chocolate Chip
-let sugar = 0;   // Sugar Sprinkle
-
-//selectors for each individual cookie 
-let Gb0 = document.querySelector("#add-gb");
-let CC0 = document.querySelector("#add-cc");
-let sugar0 = document.querySelector("#add-sugar");
 
 
+// My Name
+let yourName = "Mae Pena"
 
-//create and append gingerbread quantity button
-document.createElementById("#add-gb").addEventListener('click', function(){
-    console.log('Ginger bread + button is clicked')
-    Gingerbread = Gingerbread + 1;
-    document.querySelector("#add-gb").textContent = Gingerbread;
-})
+//add or minus button for each cookie 
+var gb = document.getElementById("add-gb");
+var gbMinus = document.getElementById("minus-gb");
+var Cc = document.getElementById("add-cc");
+var CcMinus = document.getElementById("minus-cc");
+var Sugar = document.getElementById("add-sugar");
+var SugarMinus = document.getElementById("minus-sugar");
 
 
-//create and append chocolate chip quantity button
-document.createElementById("#add-cc").addEventListener('click', function(){
-let ChocolateChip = ChocolateChip + 1;
-document.querySelector("#add-cc").textContent = ChocolateChip
+//the total and the total number of cookies
+var gbTotal= document.getElementById("qty-gb");
+var CcTotal = document.getElementById("qty-cc");
+var SugarTotal = document.getElementById("qty-sugar");
+var Total = document.getElementById("qty-total");
 
-})
 
-//create and append sugar sprinkle cookie
-let Sugar = document.createElementById("#add-sugar").addEventListener('click', function(){
-    Sugar = Sugar + 1;
-document.querySelector("#add-sugar").textContent = Sugar
 
-})
+// Gingerbread Increment button
+gb.onclick= function () {
+    var number = Number(gbTotal.innerHTML);
+     number++;
+    gbTotal.innerHTML = number;
+  Totalfinal();
+};
+
+
+// Gingerbread Decrement button
+gbMinus.onclick= function () {
+    var number = Number(gbTotal.innerHTML);
+    number--;
+    gbTotal.innerHTML = number;
+    Totalfinal();
+};
+
+
+
+// CHocolate Chip Increment button
+Cc.onclick= function () {
+    var number = Number(CcTotal.innerHTML);
+    number++;
+    CcTotal.innerHTML = number;
+    Totalfinal();
+};
+
+
+
+// Chocolate Chip Decrement button
+CcMinus.onclick= function () {
+    var number = Number(CcTotal.innerHTML);
+    number--;
+    CcTotal.innerHTML = number;
+    Totalfinal();
+};
+
+
+
+// Sugar Increment button
+Sugar.onclick= function () {
+    var number = Number(SugarTotal.innerHTML);
+    number++;
+    SugarTotal.innerHTML = number;
+    Totalfinal();
+    
+};
+
+// Sugar Decrement button
+SugarMinus.onclick= function () {
+    var number = Number(SugarTotal.innerHTML);
+    number--;
+    SugarTotal.innerHTML = number;
+    Totalfinal();
+};
+
+
+//total add up or minus of each cookie
+function Totalfinal(){
+    var number = Number(gbTotal.innerHTML);
+    var number2 = Number(CcTotal.innerHTML);
+    var number3 = Number(SugarTotal.innerHTML);
+
+   Total.innerHTML = number + number2 + number3;
+}
